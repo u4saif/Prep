@@ -7,7 +7,7 @@ import java.util.Set;
 public class QuestionThree {
     public static void main(String[] args) {
         List<Integer> arrIntegers = Arrays.asList(2, 413, 5, 3, 56, 41, 3);
-        int[] nums = {2,4,5,73,6,3};
+        int[] nums = {4,5,73,6,3};
         // int[] arrIntegers2 = {2,3,6,5,4};
         // System.out.println(arrIntegers);
         // arrIntegers.stream().filter(x->x.toString().startsWith("5")).forEach(System.out::println);

@@ -41,7 +41,6 @@ public class Main {
             ms.push(5);
             ms.push(6);
             ms.push(7);
-            ms.push(87);
             System.out.println(ms.peak());
         }catch (Exception e){
             System.out.println(e);

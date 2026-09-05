@@ -18,4 +18,35 @@ function findSumTarget(arr,target){
     return result;
 }
 
-console.log(findSumTarget(arr,10));
+// console.log(findSumTarget(arr,10));
+
+//[8,2,4,3,6] find the max profit in this trade chart
+function findMaxProfit(arr){
+    let minPrice = arr[0];
+    let maxProfit = 0;
+
+    for(let i=1;i<arr.length;i++){
+        minPrice = Math.min(minPrice, arr[i]);
+        maxProfit = Math.max(maxProfit, arr[i] - minPrice);
+    }
+
+    return maxProfit;
+}
+
+console.log(findMaxProfit([3,8,2,4,3,6]));
+
+// (function(){
+//     var x=y=2;
+// })();
+// console.log(typeof y);
+// console.log(typeof x);
+var x=10;
+function y(){
+   let x=10;
+   // return;
+    function x(){console.log(typeof x);};
+    x();
+}
+
+y();
+console.log(typeof x);

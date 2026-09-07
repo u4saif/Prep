@@ -1,0 +1,10 @@
+.App-header{
+    display: flex;
+    justify-content: center;
+    font-size: 1rem;
+    background-color: #282c34;
+    color: white;
+    position: sticky;
+    width: 100%;
+    top: 0;
+}

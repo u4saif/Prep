@@ -1,0 +1,33 @@
+will prepare for SQL Server query optimization topics, 
+ including indexing, stored procedures, joins, cursors, 
+ and temporary tables.
+will prepare for microservice architecture and scalable-system questions.
+will strengthen his knowledge of Angular, AI, and Azure topics.
+will continue improving his Angular skills.
+
+---------------------------------------------------------------
+Key Discussion Points:
+
+Technical Background and Agile Experience
+Shaikh Saifuddin introduced his full-stack background, including Angular, Node.js, React, REST APIs, Azure DevOps, and related technologies. He described his Agile experience, participation in sprint ceremonies, and informal support for junior developers.
+
+Azure Exposure and Scalable Architecture
+The discussion examined Shaikh’s Azure experience and established that it was concentrated on pipelines, deployments, and logs rather than Azure App Services or Functions. Shaikh then described a scalable microservices architecture using suitable databases, API gateways, load balancers, authorization, and automated scaling.
+
+Horizontal and Vertical Scaling
+Shaikh explained horizontal scaling as adding application instances and vertical scaling as increasing the capacity of an existing instance. The exchange connected these concepts to handling increased request volumes.
+
+AI Usage and Integration
+Shaikh described using GitHub Copilot and Cloud Code for coding suggestions, alternative approaches, and routine automation. He confirmed that an AI-related requirement had started, but API implementation had not yet begun.
+
+Security and Microservices Patterns
+The interview covered rate limiting, Shaikh’s microservices experience, and backend technology choices. Shaikh identified the Saga pattern as a way to coordinate communication and transactions among distributed services.
+
+Database Knowledge and SQL Exercise
+Shaikh discussed PostgreSQL, basic queries, indexing, and joins. He then worked through an inner-join example and clarified that the join condition belongs in the `ON` clause.
+
+Angular and HTML Concepts
+Akhilesh assessed Shaikh’s experience with RxJS observables and Angular input/output decorators. They also discussed the HTML `defer` keyword, including its relationship to DOM readiness and script execution.
+
+SQL Server Query Performance
+Akhilesh asked how Shaikh would diagnose and optimize a slow SQL Server query involving multiple joins. The discussion distinguished front-end techniques such as pagination and caching from backend query optimization.

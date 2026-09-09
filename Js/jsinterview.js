@@ -44,9 +44,25 @@ var x=10;
 function y(){
    let x=10;
    // return;
-    function x(){console.log(typeof x);};
-    x();
+    function bb(){console.log(typeof x);}; 
 }
 
 y();
-console.log(typeof x);
+// console.log(typeof x);
+
+//Move all zero toward one side [0,3,5,0,6,0,0,2]
+let zeroArr = [0,3,5,0,-6,0,0,2];
+function moveZero(arr){
+    let result = [];
+    let zeroCount = 0;
+    for(let i=0;i<arr.length;i++){
+        if(arr[i]!=0){
+            result.push(arr[i]);
+        } else {
+            zeroCount++;
+        }
+    }
+    return Array(zeroCount).fill(0).concat(result);
+}
+
+console.log(moveZero(zeroArr));

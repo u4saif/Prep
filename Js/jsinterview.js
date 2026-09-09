@@ -62,7 +62,8 @@ function moveZero(arr){
             zeroCount++;
         }
     }
-    return Array(zeroCount).fill(0).concat(result);
+    let zeros = Array(zeroCount).fill(0);
+    return result.concat(zeros);
 }
 
 console.log(moveZero(zeroArr));

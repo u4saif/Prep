@@ -31,3 +31,19 @@ Akhilesh assessed Shaikh’s experience with RxJS observables and Angular input/
 
 SQL Server Query Performance
 Akhilesh asked how Shaikh would diagnose and optimize a slow SQL Server query involving multiple joins. The discussion distinguished front-end techniques such as pagination and caching from backend query optimization.
+
+---------------------------------------------------------------
+Indexing Notes:  
+An index speeds up row lookups (WHERE, JOIN, ORDER BY, GROUP BY columns) at the cost of extra storage and slower writes.
+
+CREATE INDEX idx_department ON employees(department);
+CREATE UNIQUE INDEX idx_email ON employees(email);
+CREATE INDEX idx_dept_salary ON employees(department, salary); -- composite, leftmost column matters
+
+Check usage: EXPLAIN SELECT * FROM employees WHERE department = 'Sales';
+Drop: DROP INDEX idx_department ON employees; -- MySQL
+Drop: DROP INDEX idx_department; -- PostgreSQL/SQLite
+
+Best on high-cardinality columns used often in filters/joins/sorts; avoid over-indexing write-heavy tables.
+
+

@@ -2,9 +2,9 @@ import { CardList } from '../features/cards';
 
 export default function CardsPage() {
   return (
-    <section>
-      <h2>Cards</h2>
+    <div className="page">
+      <h2 className="page__title">Cards</h2>
       <CardList />
-    </section>
+    </div>
   );
 }

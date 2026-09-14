@@ -20,15 +20,21 @@ export function CardList() {
   };
 
   return (
-    <ul>
+    <div className="tile-grid">
       {cards.map((card) => (
-        <li key={card.id}>
-          {card.network} •••• {card.last4} — {card.status}{' '}
-          <button onClick={() => toggleStatus(card.id)}>
-            {card.status === 'active' ? 'Block' : 'Unblock'}
+        <div key={card.id} className="tile">
+          <div className="tile__row">
+            <span className="tile__title">{card.network}</span>
+            <span className={`badge ${card.status === 'active' ? 'badge-success' : 'badge-danger'}`}>
+              {card.status}
+            </span>
+          </div>
+          <span className="tile__subtitle">•••• •••• •••• {card.last4}</span>
+          <button className="btn btn-secondary btn-sm" onClick={() => toggleStatus(card.id)}>
+            {card.status === 'active' ? 'Block card' : 'Unblock card'}
           </button>
-        </li>
+        </div>
       ))}
-    </ul>
+    </div>
   );
 }

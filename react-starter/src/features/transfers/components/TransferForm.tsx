@@ -15,12 +15,12 @@ export function TransferForm() {
   };
 
   if (confirmationId) {
-    return <p>Transfer submitted. Confirmation #{confirmationId}</p>;
+    return <p className="form-success">Transfer submitted. Confirmation #{confirmationId}</p>;
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
+    <form className="form" onSubmit={handleSubmit}>
+      <div className="form-field">
         <label htmlFor="from">From</label>
         <select id="from" value={fromAccountId} onChange={(e) => setFromAccountId(e.target.value)}>
           <option value="">Select account</option>
@@ -31,7 +31,7 @@ export function TransferForm() {
           ))}
         </select>
       </div>
-      <div>
+      <div className="form-field">
         <label htmlFor="to">To</label>
         <select id="to" value={toAccountId} onChange={(e) => setToAccountId(e.target.value)}>
           <option value="">Select account</option>
@@ -42,7 +42,7 @@ export function TransferForm() {
           ))}
         </select>
       </div>
-      <div>
+      <div className="form-field">
         <label htmlFor="amount">Amount</label>
         <input
           id="amount"
@@ -54,13 +54,13 @@ export function TransferForm() {
         />
       </div>
       {errors.length > 0 && (
-        <ul role="alert">
+        <ul className="form-errors" role="alert">
           {errors.map((error) => (
             <li key={error}>{error}</li>
           ))}
         </ul>
       )}
-      <button type="submit" disabled={isSubmitting}>
+      <button className="btn btn-primary" type="submit" disabled={isSubmitting}>
         {isSubmitting ? 'Submitting…' : 'Transfer'}
       </button>
     </form>

@@ -5,13 +5,15 @@ export default function Header() {
   const { user, isAuthenticated, signOut } = useAuth();
 
   return (
-    <header className="App-header">
-      <h1>Acme Bank</h1>
+    <header className="app-header">
+      <h1 className="app-header__brand">Acme Bank</h1>
       {isAuthenticated && (
-        <div>
+        <div className="app-header__actions">
           <NotificationBell />
-          <span>{user?.name}</span>
-          <button onClick={signOut}>Sign out</button>
+          <span className="app-header__user">{user?.name}</span>
+          <button className="btn btn-ghost btn-sm" onClick={signOut}>
+            Sign out
+          </button>
         </div>
       )}
     </header>

@@ -2,6 +2,13 @@ import { ChangeEvent, useState } from 'react';
 import { submitKycDocument } from '../api/kycApi';
 import { KycStatus } from '../types';
 
+const STATUS_BADGE: Record<KycStatus, string> = {
+  not_started: 'badge-neutral',
+  pending_review: 'badge-warning',
+  verified: 'badge-success',
+  rejected: 'badge-danger',
+};
+
 export function KycForm() {
   const [status, setStatus] = useState<KycStatus>('not_started');
   const [isUploading, setIsUploading] = useState(false);
@@ -17,10 +24,17 @@ export function KycForm() {
   };
 
   return (
-    <div>
-      <p>Verification status: {status.replace('_', ' ')}</p>
-      <label htmlFor="kyc-document">Upload identity document</label>
-      <input id="kyc-document" type="file" onChange={handleFileChange} disabled={isUploading} />
+    <div className="form">
+      <div className="form-field">
+        <label>Verification status</label>
+        <span className={`badge ${STATUS_BADGE[status]}`}>
+          {status.replace('_', ' ')}
+        </span>
+      </div>
+      <div className="form-field">
+        <label htmlFor="kyc-document">Upload identity document</label>
+        <input id="kyc-document" type="file" onChange={handleFileChange} disabled={isUploading} />
+      </div>
     </div>
   );
 }

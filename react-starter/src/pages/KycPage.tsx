@@ -2,9 +2,11 @@ import { KycForm } from '../features/kyc';
 
 export default function KycPage() {
   return (
-    <section>
-      <h2>Identity Verification</h2>
-      <KycForm />
-    </section>
+    <div className="page">
+      <h2 className="page__title">Identity Verification</h2>
+      <div className="panel">
+        <KycForm />
+      </div>
+    </div>
   );
 }

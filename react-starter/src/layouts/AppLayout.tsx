@@ -10,10 +10,10 @@ export function AppLayout() {
   useIdleTimeout(signOut, env.idleTimeoutMs);
 
   return (
-    <div className="App">
+    <div className="app-shell">
       <Header />
       <NavBar />
-      <main>
+      <main className="app-main">
         <Outlet />
       </main>
     </div>

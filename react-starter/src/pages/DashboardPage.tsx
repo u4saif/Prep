@@ -3,11 +3,15 @@ import { TransactionList } from '../features/transactions';
 
 export default function DashboardPage() {
   return (
-    <section>
-      <h2>Accounts</h2>
-      <AccountList />
-      <h2>Recent Transactions</h2>
-      <TransactionList />
-    </section>
+    <div className="page">
+      <h2 className="page__title">Accounts</h2>
+      <div className="panel">
+        <AccountList />
+      </div>
+      <h2 className="page__title">Recent Transactions</h2>
+      <div className="panel">
+        <TransactionList />
+      </div>
+    </div>
   );
 }

@@ -18,12 +18,18 @@ export default function NavBar() {
   if (!isAuthenticated) return null;
 
   return (
-    <nav>
-      {NAV_ITEMS.map((item) => (
-        <NavLink key={item.to} to={item.to}>
-          {item.label}
-        </NavLink>
-      ))}
+    <nav className="app-nav">
+      <div className="app-nav__inner">
+        {NAV_ITEMS.map((item) => (
+          <NavLink
+            key={item.to}
+            to={item.to}
+            className={({ isActive }) => `app-nav__link${isActive ? ' is-active' : ''}`}
+          >
+            {item.label}
+          </NavLink>
+        ))}
+      </div>
     </nav>
   );
 }

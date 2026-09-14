@@ -12,9 +12,13 @@ export default function LoginPage() {
   }, [isAuthenticated, navigate]);
 
   return (
-    <section>
-      <h2>Sign in</h2>
-      <LoginForm />
-    </section>
+    <div className="auth-page">
+      <div className="auth-card">
+        <p className="auth-card__brand">Acme Bank</p>
+        <p className="auth-card__subtitle">Sign in to manage your accounts</p>
+        <h2 className="sr-only">Sign in</h2>
+        <LoginForm />
+      </div>
+    </div>
   );
 }

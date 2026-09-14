@@ -4,10 +4,10 @@ import { formatCurrency } from '../../../utils/formatCurrency';
 export function TransactionList({ accountId }: { accountId?: string }) {
   const { transactions, isLoading } = useTransactions(accountId);
 
-  if (isLoading) return <p>Loading transactions…</p>;
+  if (isLoading) return <p className="empty-state">Loading transactions…</p>;
 
   return (
-    <table>
+    <table className="table">
       <thead>
         <tr>
           <th>Date</th>
@@ -20,7 +20,7 @@ export function TransactionList({ accountId }: { accountId?: string }) {
           <tr key={tx.id}>
             <td>{tx.date}</td>
             <td>{tx.description}</td>
-            <td>
+            <td className={tx.type === 'debit' ? 'amount-debit' : 'amount-credit'}>
               {tx.type === 'debit' ? '-' : '+'}
               {formatCurrency(tx.amount, tx.currency)}
             </td>

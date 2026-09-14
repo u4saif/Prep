@@ -10,14 +10,21 @@ export function LoanList() {
     getLoans().then(setLoans);
   }, []);
 
-  if (loans.length === 0) return <p>No open loans.</p>;
+  if (loans.length === 0) return <p className="empty-state">No open loans.</p>;
 
   return (
-    <ul>
+    <ul className="account-list">
       {loans.map((loan) => (
-        <li key={loan.id}>
-          {loan.type} loan — outstanding {formatCurrency(loan.outstanding, loan.currency)} of{' '}
-          {formatCurrency(loan.principal, loan.currency)}
+        <li key={loan.id} className="account-list__item">
+          <span className="account-list__meta">
+            <strong className="capitalize">{loan.type} loan</strong>{' '}
+            <span className="account-list__number">
+              of {formatCurrency(loan.principal, loan.currency)}
+            </span>
+          </span>
+          <span className="account-list__balance">
+            {formatCurrency(loan.outstanding, loan.currency)} owed
+          </span>
         </li>
       ))}
     </ul>

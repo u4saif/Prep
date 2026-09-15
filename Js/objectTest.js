@@ -72,19 +72,75 @@ function objectChecker(itemA,itemB){
 // console.log(objectChecker(myobj,obj2));
 
 
-function checker(itemA, itemB){
-    if(typeof itemA == null || typeof itemB == null || typeof itemA !='object' || typeof itemA !='object' ) return false;
-
-    let keysA = Object.keys(itemA)
-
-    let keysB = Object.keys(itemB)
-    if(keysA.length != keysB.length) return false
-
-    for(let key of keysA){
-        if(!keysB.includes(key) || !checker(itemA[key],itemB[key])) return false;
-    };
-
-    return true;
+function isPlainObject(value) {
+  return Object.prototype.toString.call(value) === '[object Object]';
 }
 
-console.log(checker(obj2,obj3));
+function deepEqual(valueA, valueB) {
+  if (valueA === valueB || (Number.isNaN(valueA) && Number.isNaN(valueB))) {
+    return true;
+  }
+
+  if (valueA === null || valueB === null || valueA === undefined || valueB === undefined) {
+    return valueA === valueB;
+  }
+
+  if (typeof valueA !== 'object' || typeof valueB !== 'object') {
+    return false;
+  }
+
+  if (Array.isArray(valueA) || Array.isArray(valueB)) {
+    if (!Array.isArray(valueA) || !Array.isArray(valueB)) {
+      return false;
+    }
+
+    if (valueA.length !== valueB.length) {
+      return false;
+    }
+
+    for (let index = 0; index < valueA.length; index++) {
+      const hasA = Object.prototype.hasOwnProperty.call(valueA, index);
+      const hasB = Object.prototype.hasOwnProperty.call(valueB, index);
+
+      if (hasA !== hasB) {
+        return false;
+      }
+
+      if (hasA && hasB && !deepEqual(valueA[index], valueB[index])) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  if (!isPlainObject(valueA) || !isPlainObject(valueB)) {
+    return false;
+  }
+
+  const keysA = Object.keys(valueA);
+  const keysB = Object.keys(valueB);
+
+  if (keysA.length !== keysB.length) {
+    return false;
+  }
+
+  for (const key of keysA) {
+    if (!Object.prototype.hasOwnProperty.call(valueB, key)) {
+      return false;
+    }
+
+    if (!deepEqual(valueA[key], valueB[key])) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+console.log('deepEqual("foo", "foo") =>', deepEqual('foo', 'foo'));
+console.log('deepEqual({ id: 1 }, { id: 1 }) =>', deepEqual({ id: 1 }, { id: 1 }));
+console.log('deepEqual([1, 2, 3], [1, 2, 3]) =>', deepEqual([1, 2, 3], [1, 2, 3]));
+console.log('deepEqual([{ id: "1" }], [{ id: "2" }]) =>', deepEqual([{ id: '1' }], [{ id: '2' }]));
+console.log('deepEqual([, ,], [undefined, undefined]) =>', deepEqual([, ,], [undefined, undefined]));
+console.log('deepEqual({ a: 1, b: [2, , 4] }, { a: 1, b: [2, , 4] }) =>', deepEqual({ a: 1, b: [2, , 4] }, { a: 1, b: [2, , 4] }));

@@ -67,3 +67,33 @@ function moveZero(arr){
 }
 
 console.log(moveZero(zeroArr));
+
+
+function isPrime(num){
+    let result = true;
+    if(num <= 1){
+        return false;
+    }
+    if(num <= 3){
+        return true;
+    }
+    for(let i = 2 ; i<num;i++){
+        if(num%i == 0)  result = false;
+    }
+    return  result
+}
+
+console.log("Prime ? -> ",isPrime(4));
+
+function getPrimeNumbers(range){
+    let result = []
+    for(let i=1;i<=range;i++){
+        if(isPrime(i)){
+            result.push(i)
+        };
+    }
+
+    return result
+}
+
+console.log(getPrimeNumbers(50))

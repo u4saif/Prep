@@ -40,7 +40,7 @@ public class ThreadSafeSingleton {
 
 
 //-----------------------------------
-public class DatabaseConnectionManager {
+class DatabaseConnectionManager {
     private static volatile DatabaseConnectionManager instance;
     private final Connection connection;
 

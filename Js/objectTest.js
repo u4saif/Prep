@@ -14,10 +14,12 @@ function createClone(obj){
   if (obj === null || typeof obj !== "object") {
     return obj;
   }
-
+  if(Array.isArray(obj)){
+    return obj.forEach((item)=> createClone(item));
+  }
   const clone = {};
   Object.keys(obj).forEach((key) => {
-    clone[key] = obj[key];
+    clone[key] = createClone(obj[key]);
   });
 
   return clone;
@@ -35,19 +37,7 @@ const obj2 = createClone(myobj);
 
 // console.log(obj2);
 
-
-function myclone( obj){
-    if(typeof obj == null || typeof obj != 'object'){
-        return obj;
-    }
-
-    let clone;
-    for(key of obj.keys){
-        clone[key] = obj[key];
-    }
-
-    return obj
-}
+ 
 
 const obj3 = createClone(myobj);
 obj3.age = "obj3";

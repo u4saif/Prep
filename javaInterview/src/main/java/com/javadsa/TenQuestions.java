@@ -28,6 +28,22 @@ public class TenQuestions {
         String [] fruits = {"apple","banana","apple","mango","banana"};
         System.out.println(getDuplicates(fruits));
 
+        //Find the two sum
+        int[] numArr = {2,3,5,7,4,6,8};
+        System.out.println(getTargetSum(numArr,10));
+
+    }
+
+    private static List<Integer> getTargetSum(int[] numArr , int targetsum) {
+        Set<Integer> seen= new HashSet<>();
+        List<Integer> result = new ArrayList<>();
+        for (int num : numArr){
+            int defrence = num - targetsum;
+            if (seen.add(defrence)){
+                result.add(defrence);
+            }
+        }
+        return result;
     }
 
     private static List<Integer> getDuplicates(int[] nums) {

@@ -1,0 +1,16 @@
+{
+  "name": "mq",
+  "version": "1.0.0",
+  "description": "bullmq with produces and consumer ",
+  "main": "producer.js",
+  "scripts": {
+    "start": "node producer.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "saifuddin",
+  "license": "ISC",
+  "dependencies": {
+    "bullmq": "^6.3.9",
+    "ioredis": "^6.0.0"
+  }
+}

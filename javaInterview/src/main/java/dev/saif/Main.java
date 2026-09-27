@@ -8,7 +8,7 @@ import java.util.Map;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        int[] s = {3,2,7,5};
+        int[] s = {3,2,7,5,1,6};
         int total = 7;
         int[] result = checkTarget(s,total);
         System.out.println(Arrays.toString(result));

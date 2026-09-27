@@ -2,10 +2,7 @@ package com.javadsa;
 
 //https://freedium-mirror.cfd/https://medium.com/@chandantechie/10-common-coding-interview-questions-using-java-4bbb55127a47
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class TenQuestions {
 
@@ -29,21 +26,27 @@ public class TenQuestions {
         System.out.println(getDuplicates(fruits));
 
         //Find the two sum
-        int[] numArr = {2,3,5,7,4,6,8};
-        System.out.println(getTargetSum(numArr,10));
+        int[] numArr = {2,4,6,3,5,7,8};
+        System.out.println(getTargetSum(numArr,10).stream().map(Arrays::toString).toList());
 
     }
 
-    private static List<Integer> getTargetSum(int[] numArr , int targetsum) {
-        Set<Integer> seen= new HashSet<>();
-        List<Integer> result = new ArrayList<>();
-        for (int num : numArr){
-            int defrence = num - targetsum;
-            if (seen.add(defrence)){
-                result.add(defrence);
+    private static List<Integer[]> getTargetSum(int[] numArr , int target) {
+        Map<Integer,Integer> seenObj = new HashMap<>();
+        List<Integer[]> result = new ArrayList<>();
+        for(int index = 0; index < numArr.length; index++){
+            int difference = target - numArr[index] ;
+            if(seenObj.containsKey(difference)){
+                result.add(new Integer[]{seenObj.get(difference), index});
+               // return new int[]{seenObj.get(difference),num};
+            }else {
+                seenObj.put(numArr[index], index);
             }
+
         }
+
         return result;
+
     }
 
     private static List<Integer> getDuplicates(int[] nums) {

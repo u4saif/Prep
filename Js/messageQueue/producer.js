@@ -1,6 +1,10 @@
 const http = require("http");
 const { Queue } = require("bullmq");
 
+//------------------------------
+//create redis istance in docker 
+//docker run -itd -p 6379:6379 redis
+//------------------------------
 const emailQueue = new Queue("EMAIL_QUEUE");
 
 async function sendNotification() {

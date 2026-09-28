@@ -28,6 +28,7 @@ public class TenQuestions {
         //Find the two sum
         int[] numArr = {2,4,6,3,5,7,8};
         System.out.println(getTargetSum(numArr,10).stream().map(Arrays::toString).toList());
+        System.out.println(Arrays.deepToString(getTargetSum(numArr,10).toArray()));
 
     }
 

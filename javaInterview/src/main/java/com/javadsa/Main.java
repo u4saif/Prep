@@ -14,9 +14,9 @@ package com.javadsa;
 */
 public class Main {
     public static void main(String[] args) {
-//        LinkList ll = new LinkList();
-//        ll.addTohead(10);
-//        ll.addTohead(2099999999);
+        LinkList ll = new LinkList();
+        ll.addTohead(10);
+        ll.addTohead(2099999999);
 //        ll.addTohead(34);
 //        ll.addTohead(34);
 //        ll.addTohead(34);
@@ -33,7 +33,7 @@ public class Main {
 //        ll.addTohead(34);
 //        ll.addTohead(2099999999);
 //        System.out.println("check if 20 present: " + ll.isPresent(2099999999));
-//        ll.traverseList();
+        ll.traverseList();
         MyStack ms = new MyStack(4);
         try {
 

@@ -1,7 +1,5 @@
 package com.javadsa;
 
-import java.util.Date;
-
 public class LinkList {
     public LinkList() {
         this.head = null;

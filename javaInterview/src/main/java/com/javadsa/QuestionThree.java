@@ -1,13 +1,14 @@
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+package com.javadsa;
+
+import java.util.*;
 
 public class QuestionThree {
     public static void main(String[] args) {
-        List<Integer> arrIntegers = Arrays.asList(2, 413, 5, 3, 56, 41, 3);
-        int[] nums = {4,5,73,6,3};
+        List<Integer> arrIntegers = Arrays.asList();
+        int[] nums = {23,3,5};
+
+        Optional.of(arrIntegers).filter((item)->!item.isEmpty()).ifPresentOrElse( list -> System.out.println("Processing list with size: " + list.size()),
+                () -> System.out.println("List is either null or empty"));
         // int[] arrIntegers2 = {2,3,6,5,4};
         // System.out.println(arrIntegers);
         // arrIntegers.stream().filter(x->x.toString().startsWith("5")).forEach(System.out::println);
@@ -20,7 +21,14 @@ public class QuestionThree {
         // arrIntegers.stream().filter(x -> !temp.add(x)).findFirst()
         //         .ifPresent(x -> System.out.println("Dublicate present"));
 
-        Arrays.stream(nums).min().ifPresent(System.out::println);
+//        Arrays.stream(nums).min().ifPresent(System.out::println);
+
+        Optional.ofNullable(arrIntegers).filter((item)->!item.isEmpty()).ifPresentOrElse(list->{
+            System.out.println("It is not empty size is "+ list.size());
+        },
+                ()-> System.out.println("Emtpy or null ")
+        );
+
 
     }
 }

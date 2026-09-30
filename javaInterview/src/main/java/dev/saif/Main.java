@@ -21,12 +21,15 @@ public class Main {
 
 
         MyHashSet myset = new MyHashSet();
-        myset.add(23);
-        myset.add(24);
-        myset.add(9999);
-        myset.remove(24);
-        System.out.println(myset.contains(23));
-
+        myset.add("Aa");
+//        myset.add("saif");
+//        System.out.println(myset.contains("32"));
+        System.out.println(myset.contains("cB"));
+        boolean[] barr = new boolean[5];
+        barr[2]=true;
+        System.out.println(Arrays.toString(barr));
+        System.out.println("Aa".hashCode());  // 2112
+        System.out.println("BB".hashCode());
     }
 
 

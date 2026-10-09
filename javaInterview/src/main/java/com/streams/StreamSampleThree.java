@@ -10,7 +10,7 @@ public class StreamSampleThree {
         List<Integer> numbers = Arrays.asList(1,3,60,2,54,60);
         numbers.stream()
                 .map(num->num)
-                .sorted(Comparator.reverseOrder())
+        .sorted(Comparator.reverseOrder())
                 .forEach(System.out::println);
         Integer maxnum = numbers.stream().max(Integer::compare).orElse(null);
         System.out.println(maxnum);

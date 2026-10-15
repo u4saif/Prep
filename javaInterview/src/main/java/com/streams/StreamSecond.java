@@ -13,7 +13,7 @@ public class StreamSecond {
         employeeList.add(new Employee("saif", "shaikh", 2000.00, List.of("project angular", "project react", "project X")));
         employeeList.add(new Employee("Shabbir", "Dawoodi", 5000.0, List.of("Project 1", "Project 2")));
         employeeList.add(new Employee("Nikhil", "Gupta", 6000.0, List.of("Project 1", "Project 3")));
-        employeeList.add(new Employee("Shivam", "Kumar", 5500.0, List.of("Project 3", "Project 4")));
+        employeeList.add(new Employee("Shivam", "shaikh", 5500.0, List.of("Project 3", "Project 4")));
     }
 
     public static void main(String[] args) {
@@ -46,6 +46,9 @@ public class StreamSecond {
                 .forEach(System.out::println);
 
 
+
+        Map<String,Long> gropByproject =  employeeList.stream().collect(Collectors.groupingBy(Employee::getLastName,Collectors.counting()));
+        System.out.println(gropByproject);
 
     }
 

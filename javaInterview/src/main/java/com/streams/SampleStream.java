@@ -15,6 +15,7 @@ public class SampleStream {
 //        Stream<Map.Entry<Character, Long>> result3 = result2.entrySet().stream().filter(v->v.getValue()==1);
 //        System.out.println(result3.findFirst().orElse(null));
 
+        
 
        Map.Entry<Character, Long> dublicate =     str.chars()
                 .mapToObj(c->(char) c)

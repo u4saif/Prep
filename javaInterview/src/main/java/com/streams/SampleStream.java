@@ -10,10 +10,10 @@ import java.util.stream.Stream;
 public class SampleStream {
     public static void main(String[] args) {
         String str = "erty";
-//        Stream<Character> result = str.chars().mapToObj(c-> (char) c);
-//        LinkedHashMap<Character, Long> result2 = result.collect(Collectors.groupingBy( Function.identity(),() -> new LinkedHashMap<>(),Collectors.counting()));
-//        Stream<Map.Entry<Character, Long>> result3 = result2.entrySet().stream().filter(v->v.getValue()==1);
-//        System.out.println(result3.findFirst().orElse(null));
+        Stream<Character> result = str.chars().mapToObj(c-> (char) c);
+        LinkedHashMap<Character, Long> result2 = result.collect(Collectors.groupingBy( Function.identity(),() -> new LinkedHashMap<>(),Collectors.counting()));
+        Stream<Map.Entry<Character, Long>> result3 = result2.entrySet().stream().filter(v->v.getValue()==1);
+        System.out.println(result3.findFirst().orElse(null));
 
         
 

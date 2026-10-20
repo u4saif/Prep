@@ -1,9 +1,6 @@
 package com.streams;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -55,7 +52,16 @@ List<String> dname= studetns.stream().map(Student::getDepartment).distinct().col
 //8. Find the average age of male and female students
 //9. Find the highest rank in each department
 //10. Find the student with the second-highest rank
+        Map<String, Optional<Student>> topRanked =   studetns.stream()
+             .collect(Collectors.groupingBy(Student::getDepartment,Collectors.minBy(Comparator.comparing(Student::getRank))));
+        System.out.println(topRanked);
 
+        List<Student> ss = studetns.stream()
+                .sorted(Comparator.comparing(Student::getRank))
+                .skip(3)
+                .toList();
+
+        System.out.println(ss);
     }
 
 

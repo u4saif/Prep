@@ -46,7 +46,13 @@ List<String> dname= studetns.stream().map(Student::getDepartment).distinct().col
       List<String> skills = studetns.stream().flatMap(s -> s.getSkilss().stream()).distinct().collect(Collectors.toList());
         System.out.println(skills);
 //5. Group students by department name
+Map<String,Long> ss = studetns.stream().collect(Collectors.groupingBy(Student::getDepartment,Collectors.counting()))
+       ;
+        System.out.println(ss);
 
+     Map.Entry<String,Long>  maxStudent =  studetns.stream().collect(Collectors.groupingBy(Student::getDepartment,Collectors.counting()))
+               .entrySet().stream().max(Map.Entry.comparingByValue()).get();
+        System.out.println(maxStudent);
 //6. Count the number of students in each department
 //7. Find the department with the maximum number of students
 //8. Find the average age of male and female students
@@ -56,12 +62,12 @@ List<String> dname= studetns.stream().map(Student::getDepartment).distinct().col
              .collect(Collectors.groupingBy(Student::getDepartment,Collectors.minBy(Comparator.comparing(Student::getRank))));
         System.out.println(topRanked);
 
-        List<Student> ss = studetns.stream()
+        List<Student> ss2 = studetns.stream()
                 .sorted(Comparator.comparing(Student::getRank))
                 .skip(3)
                 .toList();
 
-        System.out.println(ss);
+        System.out.println(ss2);
     }
 
 

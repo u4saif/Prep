@@ -62,12 +62,12 @@ Map<String,Long> ss = studetns.stream().collect(Collectors.groupingBy(Student::g
              .collect(Collectors.groupingBy(Student::getDepartment,Collectors.minBy(Comparator.comparing(Student::getRank))));
         System.out.println(topRanked);
 
-        List<Student> ss2 = studetns.stream()
+        List  ss2 = studetns.stream()
                 .sorted(Comparator.comparing(Student::getRank))
-                .skip(3)
+                .skip(5)
                 .toList();
 
-        System.out.println(ss2);
+        System.out.println(ss2+"Type Erasure");
     }
 
 

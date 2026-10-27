@@ -1,10 +1,13 @@
 package com.streams;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import static java.util.Collections.reverse;
 
 //1. Find first nonrepeating character in string using Stream API
 public class SampleStream {
@@ -28,5 +31,23 @@ public class SampleStream {
                 .findFirst().orElse(null);
 
         System.out.println(dublicate);
+
+        String strTwo = "helloU";
+        String strthree = new StringBuilder(strTwo).reverse().toString();
+        Boolean isPalandrom = strTwo.equals(strthree);
+        System.out.println(isPalandrom);
+
+       String sreverse =  strTwo.chars().mapToObj(ch->String.valueOf((char) ch))
+                .reduce("",(a,b)->b + a)
+                .toString();
+
+        System.out.println(sreverse);
+
+        //Find the vowel and consonant count
+
+       Map<Boolean,List<Character>> vowel =  strTwo.chars().mapToObj(ch-> (char) ch)
+
+                .collect(Collectors.groupingBy(ch->"aeiouAEIOU".indexOf(ch)>-1));
+        System.out.println(vowel.get(false).size() + " : " +  vowel.get(true).size());
     }
 }

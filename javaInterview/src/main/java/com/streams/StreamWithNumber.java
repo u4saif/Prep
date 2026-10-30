@@ -80,3 +80,11 @@ public class StreamWithNumber {
 //1:14  Advanced: Convert Employee List to Map
 //1:20  Date Filtering (Employees joined after 2010)
 //1:24  Character Logic: Count Vowels & Consonants
+
+class MyTest{
+    public static void main(String[] args) {
+        System.out.println("This is My test");
+        Stream numbsers = Stream.of(2,3,null,6,74,3,20);
+        numbsers.forEach(item-> System.out.print(item+"->"));
+    }
+}

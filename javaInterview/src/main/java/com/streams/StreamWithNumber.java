@@ -10,54 +10,58 @@ import java.util.stream.Stream;
 public class StreamWithNumber {
     public static void main(String[] args) {
         System.out.println("Number with stream");
-        List<Integer> number = Arrays.asList(5,2,6,10,53,3,22,0);
-        List<Integer> numberTwo = Arrays.asList(5,2,6,3,22,0);
+        List<Integer> number = Arrays.asList(5, 2, 6, 10, 53, 3, 22, 0);
+        List<Integer> numberTwo = Arrays.asList(5, 2, 6, 3, 22, 0);
         Integer highest = number.stream()
                 .sorted(Comparator.reverseOrder())
                 .skip(1)
                 .findFirst().orElse(null);
         System.out.println(highest);
 
-        Integer highWithReduce = number.stream().reduce(Integer.MIN_VALUE,Integer::max);
-        System.out.println("highWithReduce "+highWithReduce);
+        Integer highWithReduce = number.stream().reduce(Integer.MIN_VALUE, Integer::max);
+        System.out.println("highWithReduce " + highWithReduce);
 
         HashSet<Integer> unique = new HashSet<>();
-        List<Integer> dublicates =  number.stream()
-                .filter(s->!unique.add(s)).collect(Collectors.toList());
-        System.out.println("Dublicated "+ dublicates);
+        List<Integer> dublicates = number.stream()
+                .filter(s -> !unique.add(s)).collect(Collectors.toList());
+        System.out.println("Dublicated " + dublicates);
 
-       Map<Boolean,List<Integer>> evenOdd = number.stream().collect(Collectors.partitioningBy(i->i%2==0));
-       System.out.println(evenOdd);
+        Map<Boolean, List<Integer>> evenOdd = number.stream().collect(Collectors.partitioningBy(i -> i % 2 == 0));
+        System.out.println(evenOdd);
 
-       List<Integer> common = number.stream().filter( num-> numberTwo.contains(num)).toList();
+        List<Integer> common = number.stream().filter(num -> numberTwo.contains(num)).toList();
 
-        System.out.println("common"+common);
+        System.out.println("common" + common);
 
 
         String stringOne = "iamsfudsdnia";
         HashSet<Character> strSet = new HashSet<>();
-       // Character step1 = stringOne.chars().mapToObj(ch->(char) ch).filter(item->strSet.add(item)).findFirst().orElse(null);
+        // Character step1 = stringOne.chars().mapToObj(ch->(char) ch).filter(item->strSet.add(item)).findFirst().orElse(null);
         //Better approach ↓
-        Character step1  = stringOne.chars().mapToObj(ch->(char) ch).collect(Collectors.groupingBy(Function.identity(),LinkedHashMap::new,Collectors.counting()))
-                        .entrySet().stream().filter(ch->ch.getValue()==1)
-                        .map(i->i.getKey())
-                        .findFirst().orElse(null);
+        Character step1 = stringOne.chars().mapToObj(ch -> (char) ch).collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+                .entrySet().stream().filter(ch -> ch.getValue() == 1)
+                .map(i -> i.getKey())
+                .findFirst().orElse(null);
 
 
         System.out.println(step1);
 
-    String nameStr = "saifuddins";
-    Character nchar = nameStr.chars().mapToObj(ch->(char) ch)
-            .collect(Collectors.groupingBy(Function.identity(),LinkedHashMap::new,Collectors.counting()))
-            .entrySet().stream().filter(st->st.getValue()>1)
-            .map(c->c.getKey())
-            .findFirst().orElse(null);
+        String nameStr = "saifuddins";
+        Character nchar = nameStr.chars().mapToObj(ch -> (char) ch)
+                .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+                .entrySet().stream().filter(st -> st.getValue() > 1)
+                .map(c -> c.getKey())
+                .findFirst().orElse(null);
         System.out.println(nchar);
 
 
+        List<Employee> employeeList = new ArrayList();
+
+
     }
+    static {
 
-
+    }
 
 }
 

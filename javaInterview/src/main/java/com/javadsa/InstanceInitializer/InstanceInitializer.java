@@ -1,6 +1,10 @@
 
 package com.javadsa.InstanceInitializer;
 
+import java.util.Collections;
+import java.util.Queue;
+import java.util.stream.Collectors;
+
 //Example of Static Initializer vs member Initializer
 public class InstanceInitializer {
     static int count;

@@ -28,7 +28,6 @@ public class MyCache<K,V> {
     private void unlink(Node<K,V> node){
         node.prev.next = node.next;
         node.next.prev = node.prev;
-//        cacheMap.remove(node);
     }
 
 private void addTohead(Node<K,V> node){
@@ -36,7 +35,6 @@ private void addTohead(Node<K,V> node){
         node.next = head.next;
         head.next.prev = node;
         head.next = node;
-//        cacheMap.put(node.key, node);
 
 }
 

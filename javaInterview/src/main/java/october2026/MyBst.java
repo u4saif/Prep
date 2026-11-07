@@ -8,33 +8,21 @@ public class MyBst {
     }
 
     public void insert(int value) {
-        rootNode = insert(rootNode,value);
+        rootNode = insert(rootNode, value);
     }
 
-    public Node insert(Node node, int value){
+    public Node insert(Node node, int value) {
         if (node == null) {
-           return  new Node(value);
+            return new Node(value);
         }
 
-        if(value < node.element){
-           node.left = insert(node.left , value);
-        } else if(value > node.element){
-           node.right = insert(node.right , value);
+        if (value < node.element) {
+            node.left = insert(node.left, value);
+        } else if (value > node.element) {
+            node.right = insert(node.right, value);
         }
 
         return node;
-    }
-
- static final class Node {
-        int element;
-        Node left, right;
-
-        Node(int element) {
-            this.element = element;
-            this.left = null;
-            this.right = null;
-        }
-
     }
 
     public void showAll(Node cnode) {
@@ -46,9 +34,21 @@ public class MyBst {
         showAll(cnode.right);
     }
 
+    static final class Node {
+        int element;
+        Node left, right;
+
+        Node(int element) {
+            this.element = element;
+            this.left = null;
+            this.right = null;
+        }
+
+    }
+
 }
 
-class  Test3{
+class Test3 {
 
     public static void main(String[] args) {
         MyBst nst = new MyBst(3);
